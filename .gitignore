@@ -1,0 +1,6 @@
+/auto-save-list
+/backup
+/elpa
+/smex-items
+/.emacs.desktop
+.*.lock
