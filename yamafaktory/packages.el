@@ -54,4 +54,8 @@
 (require-pkg 'multi-term)
 (require 'multi-term)
 
+;; dockerfile-mode
+(require-pkg 'dockerfile-mode)
+(require 'dockerfile-mode)
+
 (provide 'packages)
