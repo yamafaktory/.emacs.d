@@ -58,4 +58,8 @@
 (require-pkg 'dockerfile-mode)
 (require 'dockerfile-mode)
 
+;; yaml-mode
+(require-pkg 'yaml-mode)
+(require 'yaml-mode)
+
 (provide 'packages)
