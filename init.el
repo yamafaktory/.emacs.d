@@ -1,6 +1,8 @@
 ;;; init.el --- yamafaktory
 
-;; Save session
+;; Desktop saving
+(setq desktop-restore-eager 5)
+(setq desktop-save (quote if-exists))
 (desktop-save-mode 1)
 
 ;; Remove splash screen
@@ -78,10 +80,8 @@
 ;; Disable ring bell
 (setq ring-bell-function 'ignore)
 
-;; Desktop saving
-(setq desktop-restore-eager 5)
-(setq desktop-save (quote if-exists))
-(desktop-save-mode 1)
+;; Auto refresh buffers
+(global-auto-revert-mode 1)
 
 ;; Load other packages
 (require 'packages)

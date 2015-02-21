@@ -1,6 +1,6 @@
 ;;; packages.el --- Extra packages to load
 
-;; ample
+;; gotham
 (require-pkg 'gotham-theme)
 (load-theme 'gotham t)
 
