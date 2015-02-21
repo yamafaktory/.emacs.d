@@ -72,6 +72,9 @@
 (setq require-final-newline nil)
 (setq mode-require-final-newline nil)
 
+;; Remove trailing whitespace
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; Disable ring bell
 (setq ring-bell-function 'ignore)
 
