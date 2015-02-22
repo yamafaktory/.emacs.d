@@ -26,6 +26,11 @@
 (require 'git-gutter-fringe)
 (global-git-gutter-mode t)
 
+;; helm
+(require-pkg 'helm)
+(require 'helm)
+(global-set-key (kbd "C-²") 'helm-mini)
+
 ;; js2-mode
 (require-pkg 'js2-mode)
 (require 'js2-mode)

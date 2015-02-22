@@ -3,4 +3,5 @@
 /elpa
 /smex-items
 /.emacs.desktop
+/project-explorer-cache
 .*.lock
