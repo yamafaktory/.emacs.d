@@ -15,11 +15,6 @@
 ;; No blinking cursor
 (blink-cursor-mode -1)
 
-;; Save session
-(setq desktop-restore-eager 5)
-(setq desktop-save (quote if-exists))
-(desktop-save-mode 1)
-
 ;; No tooltip
 (tooltip-mode -1)
 
@@ -44,7 +39,6 @@
 ;; Packages sources
 (require 'package)
 (setq package-archives '(("melpa" . "http://melpa.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/package/")
                          ("gnu" . "http://elpa.gnu.org/packages/")))
 (package-initialize)
 (unless package-archive-contents
@@ -82,6 +76,9 @@
 
 ;; Auto refresh buffers
 (global-auto-revert-mode 1)
+
+;; Simplified yep nope
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Load other packages
 (require 'packages)

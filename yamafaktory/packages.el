@@ -1,8 +1,8 @@
 ;;; packages.el --- Extra packages to load
 
-;; gotham
-(require-pkg 'gotham-theme)
-(load-theme 'gotham t)
+;; sublime-themes
+(require-pkg 'warm-night-theme)
+(load-theme 'warm-night t)
 
 ;; cider
 (require-pkg 'cider)
@@ -11,6 +11,7 @@
 ;; clojure
 (require-pkg 'clojure-mode)
 (require 'clojure-mode)
+(add-to-list 'auto-mode-alist '("\\.cljs\\'" . clojure-mode))
 
 ;; company-mode
 (require-pkg 'company)
@@ -36,6 +37,13 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
+;; markdown-mode
+(require-pkg 'markdown-mode)
+(require 'markdown-mode)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
 ;; multiple-cursors
 (require-pkg 'multiple-cursors)
 (require 'multiple-cursors)
@@ -47,25 +55,13 @@
 (require-pkg 'multi-term)
 (require 'multi-term)
 
-;; project-explorer
-(require-pkg 'project-explorer)
-(require 'project-explorer)
-(setq-default pe/width 30)
-(define-key project-explorer-mode-map (kbd "<mouse-1>") 'pe/return)
-(add-hook 'project-explorer-mode-hook 'hl-line-mode)
-(global-set-key
- (kbd "<left-margin> <drag-mouse-1>")
- (lambda () (interactive)
-   (-if-let (win (car (-keep 'get-buffer-window (pe/get-project-explorer-buffers))))
-       (delete-window win)
-     (project-explorer-open))))
-
 ;; rainbow-delimiters
 (require-pkg 'rainbow-delimiters)
 (require 'rainbow-delimiters)
+(add-hook 'foo-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
-;; smartparens
+;; Smartparens
 (require-pkg 'smartparens)
 (require 'smartparens-config)
 (smartparens-global-mode t)
