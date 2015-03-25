@@ -1,8 +1,8 @@
 ;;; packages.el --- Extra packages to load
 
-;; sublime-themes
-(require-pkg 'warm-night-theme)
-(load-theme 'warm-night t)
+;; theme
+(require-pkg 'gotham-theme)
+(load-theme 'gotham t)
 
 ;; cider
 (require-pkg 'cider)
@@ -13,6 +13,10 @@
 (require 'clojure-mode)
 (add-to-list 'auto-mode-alist '("\\.cljs\\'" . clojure-mode))
 
+;; color-identifiers-mode
+(require-pkg 'color-identifiers-mode)
+(add-hook 'after-init-hook 'global-color-identifiers-mode)
+
 ;; company-mode
 (require-pkg 'company)
 (require 'company)
@@ -21,6 +25,10 @@
 ;; dockerfile-mode
 (require-pkg 'dockerfile-mode)
 (require 'dockerfile-mode)
+
+;; flycheck
+(require-pkg 'flycheck)
+(require 'flycheck)
 
 ;; git-gutter-fringe
 (require-pkg 'git-gutter-fringe)
@@ -31,6 +39,10 @@
 (require-pkg 'helm)
 (require 'helm)
 (global-set-key (kbd "C-²") 'helm-mini)
+
+;; json-mode
+(require-pkg 'json-mode)
+(require 'json-mode)
 
 ;; js2-mode
 (require-pkg 'js2-mode)
@@ -58,7 +70,6 @@
 ;; rainbow-delimiters
 (require-pkg 'rainbow-delimiters)
 (require 'rainbow-delimiters)
-(add-hook 'foo-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;; Smartparens
