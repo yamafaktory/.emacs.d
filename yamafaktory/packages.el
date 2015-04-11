@@ -1,14 +1,14 @@
 ;;; packages.el --- Extra packages to load
 
 ;; theme
-(require-pkg 'gotham-theme)
-(load-theme 'gotham t)
+(require-pkg 'sublime-themes)
+(load-theme 'brin t)
 
 ;; cider
 (require-pkg 'cider)
 (require 'cider)
 
-;; clojure
+;; clojure-mode
 (require-pkg 'clojure-mode)
 (require 'clojure-mode)
 (add-to-list 'auto-mode-alist '("\\.cljs\\'" . clojure-mode))
@@ -38,7 +38,12 @@
 ;; helm
 (require-pkg 'helm)
 (require 'helm)
-(global-set-key (kbd "C-²") 'helm-mini)
+(global-set-key (kbd "M-x") 'helm-M-x)
+
+;; helm-projectile
+(require-pkg 'helm-projectile)
+(require 'helm-projectile)
+(helm-projectile-on)
 
 ;; json-mode
 (require-pkg 'json-mode)
@@ -67,26 +72,18 @@
 (require-pkg 'multi-term)
 (require 'multi-term)
 
-;; rainbow-delimiters
-(require-pkg 'rainbow-delimiters)
-(require 'rainbow-delimiters)
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+;; projectile
+(require-pkg 'projectile)
+(require 'projectile)
+(projectile-global-mode)
 
-;; Smartparens
+;; smartparens
 (require-pkg 'smartparens)
 (require 'smartparens-config)
 (smartparens-global-mode t)
 (show-smartparens-global-mode t)
 (define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
 (define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
-
-;; smex
-(require-pkg 'smex)
-(require 'smex)
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; yaml-mode
 (require-pkg 'yaml-mode)

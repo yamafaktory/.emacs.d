@@ -27,6 +27,9 @@
 ;; Save buffers before compiling
 (setq compilation-ask-about-save nil)
 
+;; Disable lock files
+(setq create-lockfiles nil)
+
 ;; Add other startup files to load path
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
@@ -58,6 +61,9 @@
 ;; Line numbers
 (global-linum-mode t)
 
+;; No cursor in inactive windows
+(setq-default cursor-in-non-selected-windows nil)
+
 ;; No double space at the end of sentences
 (setq sentence-end-double-space nil)
 
@@ -71,6 +77,9 @@
 ;; Remove trailing whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; Soft wrap lines
+(global-visual-line-mode t)
+
 ;; Disable ring bell
 (setq ring-bell-function 'ignore)
 
@@ -79,6 +88,10 @@
 
 ;; Simplified yep nope
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; Font
+(add-to-list 'default-frame-alist '(font . "Fira Mono-14"))
+(set-face-attribute 'default t :font "Fira Mono-14")
 
 ;; Load other packages
 (require 'packages)
