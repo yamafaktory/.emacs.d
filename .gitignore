@@ -5,3 +5,8 @@
 /.emacs.desktop
 /project-explorer-cache
 .*.lock
+.mc-lists.el
+places
+projectile-bookmarks.eld
+recentf
+session.*
