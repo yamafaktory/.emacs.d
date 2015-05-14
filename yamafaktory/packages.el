@@ -78,6 +78,9 @@
 (require-pkg 'multi-term)
 (require 'multi-term)
 
+;; php-mode
+(require-pkg 'php-mode)
+
 ;; projectile
 (require-pkg 'projectile)
 (require 'projectile)
