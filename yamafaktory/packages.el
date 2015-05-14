@@ -1,8 +1,8 @@
 ;;; packages.el --- Extra packages to load
 
 ;; theme
-(require-pkg 'sublime-themes)
-(load-theme 'brin t)
+(require-pkg 'cyberpunk-theme)
+(load-theme 'cyberpunk t)
 
 ;; cider
 (require-pkg 'cider)
@@ -45,6 +45,11 @@
 (require 'helm-projectile)
 (helm-projectile-on)
 
+;; indent-guide
+(require-pkg 'indent-guide)
+(require 'indent-guide)
+(indent-guide-global-mode)
+
 ;; json-mode
 (require-pkg 'json-mode)
 (require 'json-mode)
@@ -53,7 +58,7 @@
 (require-pkg 'js2-mode)
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(setq-default js2-basic-offset 2)
+(setq-default js2-basic-offset 4)
 
 ;; markdown-mode
 (require-pkg 'markdown-mode)

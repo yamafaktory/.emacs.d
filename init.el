@@ -60,7 +60,7 @@
 (set-default 'indent-tabs-mode nil)
 
 ;; Indent
-(setq-default tab-width 2)
+(setq-default tab-width 4)
 
 ;; Line numbers
 (global-linum-mode t)
