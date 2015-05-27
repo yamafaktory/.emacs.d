@@ -86,6 +86,10 @@
 (require 'projectile)
 (projectile-global-mode)
 
+;; rust-lang
+(require-pkg 'rust-mode)
+(require 'rust-mode)
+
 ;; smartparens
 (require-pkg 'smartparens)
 (require 'smartparens-config)
