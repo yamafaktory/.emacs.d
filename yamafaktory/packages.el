@@ -29,6 +29,7 @@
 ;; flycheck
 (require-pkg 'flycheck)
 (require 'flycheck)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; git-gutter-fringe
 (require-pkg 'git-gutter-fringe)
@@ -59,6 +60,11 @@
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq-default js2-basic-offset 4)
+
+;; less-css-mode
+(require-pkg 'less-css-mode)
+(require 'less-css-mode)
+(add-to-list 'auto-mode-alist '("\\.less\\'" . less-css-mode))
 
 ;; markdown-mode
 (require-pkg 'markdown-mode)
