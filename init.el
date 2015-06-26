@@ -62,8 +62,14 @@
 ;; Indent
 (setq-default tab-width 4)
 
-;; Line numbers
-(global-linum-mode t)
+;; Line number
+(line-number-mode t)
+
+;; Column number
+(column-number-mode t)
+
+;; File size
+(size-indication-mode t)
 
 ;; No cursor in inactive windows
 (setq-default cursor-in-non-selected-windows nil)
@@ -74,9 +80,8 @@
 ;; Default column size
 (setq default-fill-column 79)
 
-;; No newline at file end's
-(setq require-final-newline nil)
-(setq mode-require-final-newline nil)
+;; Newline at file end's
+(setq require-final-newline t)
 
 ;; Remove trailing whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -92,6 +97,9 @@
 
 ;; Simplified yep nope
 (defalias 'yes-or-no-p 'y-or-n-p)
+
+;; Typed text replaces selection
+(delete-selection-mode 1)
 
 ;; Font
 (add-to-list 'default-frame-alist '(font . "Fira Mono-14"))

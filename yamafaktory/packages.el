@@ -4,6 +4,11 @@
 (require-pkg 'cyberpunk-theme)
 (load-theme 'cyberpunk t)
 
+;; aggressive-indent
+(require-pkg 'aggressive-indent)
+(require 'aggressive-indent)
+(global-aggressive-indent-mode 1)
+
 ;; cider
 (require-pkg 'cider)
 (require 'cider)
@@ -65,6 +70,7 @@
 (require-pkg 'less-css-mode)
 (require 'less-css-mode)
 (add-to-list 'auto-mode-alist '("\\.less\\'" . less-css-mode))
+(setq less-css-indent-level 2)
 
 ;; markdown-mode
 (require-pkg 'markdown-mode)
