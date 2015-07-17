@@ -13,6 +13,13 @@
 (require-pkg 'cider)
 (require 'cider)
 
+;; clojure-cheatsheet
+(require-pkg 'clojure-cheatsheet)
+(require 'clojure-cheatsheet)
+(eval-after-load 'clojure-mode
+  '(progn
+     (define-key clojure-mode-map (kbd "C-c C-h") #'clojure-cheatsheet)))
+
 ;; clojure-mode
 (require-pkg 'clojure-mode)
 (require 'clojure-mode)
