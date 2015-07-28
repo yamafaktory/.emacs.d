@@ -53,6 +53,10 @@
 (require 'helm)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
+;; helm-ag
+(require-pkg 'helm-ag)
+(require 'helm-ag)
+
 ;; helm-projectile
 (require-pkg 'helm-projectile)
 (require 'helm-projectile)
@@ -108,6 +112,9 @@
 (require-pkg 'projectile)
 (require 'projectile)
 (projectile-global-mode)
+(defun projectile-helm-ag ()
+  (interactive)
+  (helm-ag (projectile-project-root)))
 
 ;; rust-lang
 (require-pkg 'rust-mode)
