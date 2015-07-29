@@ -54,7 +54,8 @@
 (defun require-pkg (pkg)
   "Only install a package if needed"
   (unless (package-installed-p pkg)
-    (package-install pkg)))
+    (package-install pkg))
+  (require pkg))
 
 ;; No tabs
 (set-default 'indent-tabs-mode nil)

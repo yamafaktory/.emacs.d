@@ -4,18 +4,24 @@
 (require-pkg 'cyberpunk-theme)
 (load-theme 'cyberpunk t)
 
+;; diminish
+(require-pkg 'diminish)
+
 ;; aggressive-indent
 (require-pkg 'aggressive-indent)
-(require 'aggressive-indent)
 (global-aggressive-indent-mode 1)
 
 ;; cider
 (require-pkg 'cider)
-(require 'cider)
+
+;; clojure-cheatsheet
+(require-pkg 'clojure-cheatsheet)
+(eval-after-load 'clojure-mode
+  '(progn
+     (define-key clojure-mode-map (kbd "C-c C-h") #'clojure-cheatsheet)))
 
 ;; clojure-mode
 (require-pkg 'clojure-mode)
-(require 'clojure-mode)
 (add-to-list 'auto-mode-alist '("\\.cljs\\'" . clojure-mode))
 
 ;; color-identifiers-mode
@@ -24,83 +30,81 @@
 
 ;; company-mode
 (require-pkg 'company)
-(require 'company)
-(add-hook 'after-init-hook 'global-company-mode)
+(diminish 'company-mode)
 
 ;; dockerfile-mode
 (require-pkg 'dockerfile-mode)
-(require 'dockerfile-mode)
 
 ;; flycheck
 (require-pkg 'flycheck)
-(require 'flycheck)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; git-gutter-fringe
 (require-pkg 'git-gutter-fringe)
-(require 'git-gutter-fringe)
 (global-git-gutter-mode t)
+
+;; golden-ratio
+(require-pkg 'golden-ratio)
+(golden-ratio-mode 1)
 
 ;; helm
 (require-pkg 'helm)
-(require 'helm)
 (global-set-key (kbd "M-x") 'helm-M-x)
+
+;; helm-ag
+(require-pkg 'helm-ag)
 
 ;; helm-projectile
 (require-pkg 'helm-projectile)
-(require 'helm-projectile)
 (helm-projectile-on)
 
 ;; indent-guide
 (require-pkg 'indent-guide)
-(require 'indent-guide)
 (indent-guide-global-mode)
 
 ;; json-mode
 (require-pkg 'json-mode)
-(require 'json-mode)
 
 ;; js2-mode
 (require-pkg 'js2-mode)
-(require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq-default js2-basic-offset 4)
 
 ;; less-css-mode
 (require-pkg 'less-css-mode)
-(require 'less-css-mode)
 (add-to-list 'auto-mode-alist '("\\.less\\'" . less-css-mode))
 (setq less-css-indent-level 2)
 
+;; magit
+(require-pkg 'magit)
+
 ;; markdown-mode
 (require-pkg 'markdown-mode)
-(require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
 ;; multiple-cursors
 (require-pkg 'multiple-cursors)
-(require 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;; multi-term
 (require-pkg 'multi-term)
-(require 'multi-term)
 
 ;; php-mode
 (require-pkg 'php-mode)
 
 ;; projectile
 (require-pkg 'projectile)
-(require 'projectile)
 (projectile-global-mode)
+(defun projectile-helm-ag ()
+  (interactive)
+  (helm-ag (projectile-project-root)))
 
 ;; rust-lang
 (require-pkg 'rust-mode)
-(require 'rust-mode)
 
 ;; smartparens
 (require-pkg 'smartparens)
@@ -110,8 +114,12 @@
 (define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
 (define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
 
+;; undo-tree
+(require-pkg 'undo-tree)
+(diminish 'undo-tree-mode "UT")
+(global-undo-tree-mode)
+
 ;; yaml-mode
 (require-pkg 'yaml-mode)
-(require 'yaml-mode)
 
 (provide 'packages)
