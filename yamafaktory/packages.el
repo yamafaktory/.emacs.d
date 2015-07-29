@@ -30,7 +30,7 @@
 
 ;; company-mode
 (require-pkg 'company t)
-(diminish 'company-mode)
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;; dockerfile-mode
 (require-pkg 'dockerfile-mode t)
