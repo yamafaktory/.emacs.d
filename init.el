@@ -64,6 +64,10 @@
 (add-hook 'html-mode-hook
           (lambda ()
             (set (make-local-variable 'sgml-basic-offset) 4)))
+(add-hook 'json-mode-hook
+          (lambda ()
+            (make-local-variable 'js-indent-level)
+            (setq js-indent-level 2)))
 
 ;; Line number
 (line-number-mode t)
