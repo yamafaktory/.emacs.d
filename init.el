@@ -51,11 +51,11 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
-(defun require-pkg (pkg)
+(defun require-pkg (pkg &optional req)
   "Only install a package if needed"
   (unless (package-installed-p pkg)
     (package-install pkg))
-  (require pkg))
+  (if req (require pkg)))
 
 ;; No tabs
 (set-default 'indent-tabs-mode nil)
