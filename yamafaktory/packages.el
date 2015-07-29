@@ -119,6 +119,12 @@
 (diminish 'undo-tree-mode "UT")
 (global-undo-tree-mode)
 
+;; whitespace
+(require-pkg 'whitespace t)
+(setq whitespace-line-column 80)
+(setq whitespace-style '(face lines-tail))
+(add-hook 'prog-mode-hook 'whitespace-mode)
+
 ;; yaml-mode
 (require-pkg 'yaml-mode t)
 
