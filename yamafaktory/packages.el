@@ -103,6 +103,10 @@
   (interactive)
   (helm-ag (projectile-project-root)))
 
+;; rainbow-delimiters
+(require-pkg 'rainbow-delimiters t)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
 ;; rust-lang
 (require-pkg 'rust-mode t)
 
@@ -118,12 +122,6 @@
 (require-pkg 'undo-tree t)
 (diminish 'undo-tree-mode "UT")
 (global-undo-tree-mode)
-
-;; whitespace
-(require-pkg 'whitespace t)
-(setq whitespace-line-column 80)
-(setq whitespace-style '(face lines-tail))
-(add-hook 'prog-mode-hook 'whitespace-mode)
 
 ;; yaml-mode
 (require-pkg 'yaml-mode t)
