@@ -79,6 +79,7 @@
 
 ;; magit
 (require-pkg 'magit t)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; markdown-mode
 (require-pkg 'markdown-mode t)
