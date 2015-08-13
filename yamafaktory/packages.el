@@ -69,6 +69,8 @@
 (require-pkg 'js2-mode t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq-default js2-basic-offset 4)
+(setq-default js2-mode-show-parse-errors nil
+              js2-mode-show-strict-warnings nil)
 
 ;; less-css-mode
 (require-pkg 'less-css-mode t)
@@ -106,6 +108,9 @@
 ;; rainbow-delimiters
 (require-pkg 'rainbow-delimiters t)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+;; restclient
+(require-pkg 'restclient t)
 
 ;; rust-lang
 (require-pkg 'rust-mode t)
