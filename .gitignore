@@ -4,6 +4,7 @@
 /smex-items
 /.emacs.desktop
 /project-explorer-cache
+/eshell
 .*.lock
 .mc-lists.el
 places

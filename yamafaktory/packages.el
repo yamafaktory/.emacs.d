@@ -13,6 +13,8 @@
 
 ;; cider
 (require-pkg 'cider)
+(add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)
+(add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
 
 ;; clojure-cheatsheet
 (require-pkg 'clojure-cheatsheet t)
