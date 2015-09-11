@@ -107,6 +107,7 @@
 
 ;; multi-term
 (require-pkg 'multi-term t)
+(setq multi-term-program "/bin/zsh")
 
 ;; php-mode
 (require-pkg 'php-mode)
