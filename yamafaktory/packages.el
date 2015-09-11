@@ -11,6 +11,11 @@
 (require-pkg 'aggressive-indent t)
 (global-aggressive-indent-mode 1)
 
+;; anzu
+(require-pkg 'anzu t)
+(diminish 'anzu-mode)
+(global-anzu-mode)
+
 ;; cider
 (require-pkg 'cider)
 (add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)
@@ -40,6 +45,8 @@
 ;; flycheck
 (require-pkg 'flycheck t)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(setq ispell-program-name "aspell"
+      ispell-extra-args '("--sug-mode=ultra"))
 
 ;; git-gutter-fringe
 (require-pkg 'git-gutter-fringe t)
@@ -89,6 +96,9 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; midnight
+(require-pkg 'midnight t)
+
 ;; multiple-cursors
 (require-pkg 'multiple-cursors t)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -130,6 +140,10 @@
 (require-pkg 'undo-tree t)
 (diminish 'undo-tree-mode "UT")
 (global-undo-tree-mode)
+
+;; windmove
+(require-pkg 'windmove t)
+(windmove-default-keybindings)
 
 ;; yaml-mode
 (require-pkg 'yaml-mode t)
