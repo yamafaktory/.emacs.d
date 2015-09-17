@@ -38,6 +38,7 @@
 ;; company-mode
 (require-pkg 'company t)
 (add-hook 'after-init-hook 'global-company-mode)
+(setq company-dabbrev-downcase nil)
 
 ;; dockerfile-mode
 (require-pkg 'dockerfile-mode t)
