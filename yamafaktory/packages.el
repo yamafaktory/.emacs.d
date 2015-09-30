@@ -1,8 +1,8 @@
 ;;; packages.el --- Extra packages to load
 
 ;; theme
-(require-pkg 'cyberpunk-theme)
-(load-theme 'cyberpunk t)
+(require-pkg 'gotham-theme)
+(load-theme 'gotham t)
 
 ;; diminish
 (require-pkg 'diminish)
