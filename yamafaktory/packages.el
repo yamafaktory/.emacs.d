@@ -72,6 +72,13 @@
 (require-pkg 'indent-guide t)
 (indent-guide-global-mode)
 
+;; inf-clojure
+(require-pkg 'inf-clojure t)
+(defun figwheel-repl ()
+  (interactive)
+  (run-clojure "lein figwheel"))
+(add-hook 'clojure-mode-hook #'inf-clojure-minor-mode)
+
 ;; json-mode
 (require-pkg 'json-mode t)
 
