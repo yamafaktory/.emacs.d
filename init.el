@@ -3,7 +3,7 @@
 ;; Desktop saving
 (setq desktop-restore-eager 5)
 (setq desktop-save (quote if-exists))
-(desktop-save-mode 1)
+(desktop-save-mode t)
 
 ;; Remove splash screen
 (setq inhibit-startup-message t)
@@ -101,17 +101,20 @@
 (setq ring-bell-function 'ignore)
 
 ;; Auto refresh buffers
-(global-auto-revert-mode 1)
+(global-auto-revert-mode t)
 
 ;; Simplified yep nope
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Typed text replaces selection
-(delete-selection-mode 1)
+(delete-selection-mode t)
 
 ;; Font
 (add-to-list 'default-frame-alist '(font . "Fira Mono-14"))
 (set-face-attribute 'default t :font "Fira Mono-14")
+
+;; Highlight current line.
+(global-hl-line-mode t)
 
 ;; Load other packages
 (require 'packages)
