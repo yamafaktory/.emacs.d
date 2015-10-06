@@ -16,6 +16,10 @@
 (diminish 'anzu-mode)
 (global-anzu-mode)
 
+;; browse-at-remote
+(require-pkg 'browse-at-remote t)
+(global-set-key (kbd "C-c r") 'browse-at-remote)
+
 ;; cider
 (require-pkg 'cider)
 (add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)
