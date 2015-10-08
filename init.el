@@ -1,25 +1,25 @@
 ;;; init.el --- yamafaktory
 
-;; Desktop saving
+;; Desktop saving.
 (setq desktop-restore-eager 5)
 (setq desktop-save (quote if-exists))
 (desktop-save-mode t)
 
-;; Remove splash screen
+;; Remove splash screen.
 (setq inhibit-startup-message t)
 
-;; Remove unwanted UI elements
+;; Remove unwanted UI elements.
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
   (when (fboundp mode) (funcall mode -1)))
 
-;; Go fullscreen
+;; Go fullscreen.
 (custom-set-variables
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
-;; No blinking cursor
+;; No blinking cursor.
 (blink-cursor-mode -1)
 
-;; No tooltip
+;; No tooltip.
 (tooltip-mode -1)
 
 ;; UTF-8
@@ -28,22 +28,22 @@
 (prefer-coding-system 'utf-8)
 (load-library "iso-transl")
 
-;; Save buffers before compiling
+;; Save buffers before compiling.
 (setq compilation-ask-about-save nil)
 
-;; Disable lock files
+;; Disable lock files.
 (setq create-lockfiles nil)
 
-;; Add other startup files to load path
+;; Add other startup files to load path.
 (setq dotfiles-dir (file-name-directory
                     (or (buffer-file-name) load-file-name)))
 (add-to-list 'load-path (concat dotfiles-dir "yamafaktory"))
 
-;; Write backup files to own directory
+;; Write backup files to own directory.
 (setq backup-directory-alist
       `(("." . ,(expand-file-name (concat dotfiles-dir "backup")))))
 
-;; Packages sources
+;; Packages sources.
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("gnu" . "https://elpa.gnu.org/packages/")))
@@ -52,15 +52,15 @@
   (package-refresh-contents))
 
 (defun require-pkg (pkg &optional req)
-  "Only install a package if needed"
+  "Only install a package if needed."
   (unless (package-installed-p pkg)
     (package-install pkg))
   (if req (require pkg)))
 
-;; No tabs
+;; No tabs.
 (set-default 'indent-tabs-mode nil)
 
-;; Indent
+;; Indentation settings.
 (setq-default tab-width 4)
 (add-hook 'html-mode-hook
           (lambda ()
@@ -70,51 +70,54 @@
             (make-local-variable 'js-indent-level)
             (setq js-indent-level 2)))
 
-;; Line number
+;; Line number.
 (line-number-mode t)
 
-;; Column number
+;; Column number.
 (column-number-mode t)
 
-;; File size
+;; File size.
 (size-indication-mode t)
 
-;; No cursor in inactive windows
+;; No cursor in inactive windows.
 (setq-default cursor-in-non-selected-windows nil)
 
-;; No double space at the end of sentences
+;; No double space at the end of sentences.
 (setq sentence-end-double-space nil)
 
-;; Default column size
+;; Default column size.
 (setq default-fill-column 79)
 
-;; Newline at file end's
+;; Newline at file end's.
 (setq require-final-newline t)
 
-;; Remove trailing whitespace
+;; Remove trailing whitespace.
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;; Soft wrap lines
+;; Soft wrap lines.
 (global-visual-line-mode t)
 
-;; Disable ring bell
+;; Disable ring bell.
 (setq ring-bell-function 'ignore)
 
-;; Auto refresh buffers
+;; Auto refresh buffers.
 (global-auto-revert-mode t)
 
-;; Simplified yep nope
+;; Simplified yep nope.
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; Typed text replaces selection
+;; Typed text replaces selection.
 (delete-selection-mode t)
 
-;; Font
+;; Font face and size.
 (add-to-list 'default-frame-alist '(font . "Fira Mono-14"))
 (set-face-attribute 'default t :font "Fira Mono-14")
 
 ;; Highlight current line.
 (global-hl-line-mode t)
 
-;; Load other packages
+;; Load other packages.
 (require 'packages)
+
+;; Load custom functions.
+(require 'utilities)
