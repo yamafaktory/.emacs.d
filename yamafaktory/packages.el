@@ -9,7 +9,7 @@
 
 ;; aggressive-indent
 (require-pkg 'aggressive-indent t)
-(global-aggressive-indent-mode 1)
+(global-aggressive-indent-mode t)
 
 ;; anzu
 (require-pkg 'anzu t)
@@ -90,6 +90,7 @@
 (require-pkg 'js2-mode t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (setq-default js2-basic-offset 4)
+(setq-default js2-indent-switch-body t)
 (setq-default js2-mode-show-parse-errors nil
               js2-mode-show-strict-warnings nil)
 
