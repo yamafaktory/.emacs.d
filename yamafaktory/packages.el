@@ -27,9 +27,8 @@
 
 ;; clojure-cheatsheet
 (require-pkg 'clojure-cheatsheet t)
-(eval-after-load 'clojure-mode
-  '(progn
-     (define-key clojure-mode-map (kbd "C-c C-h") #'clojure-cheatsheet)))
+(with-eval-after-load 'clojure-mode
+  (define-key clojure-mode-map (kbd "C-c C-h") #'clojure-cheatsheet))
 
 ;; clojure-mode
 (require-pkg 'clojure-mode t)
@@ -53,6 +52,12 @@
 (setq ispell-program-name "aspell"
       ispell-extra-args '("--sug-mode=ultra"))
 
+;; flycheck-haskell
+(require-pkg 'flycheck-haskell t)
+(with-eval-after-load "flycheck"
+  (with-eval-after-load "haskell"
+    (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup)))
+
 ;; git-gutter-fringe
 (require-pkg 'git-gutter-fringe t)
 (global-git-gutter-mode t)
@@ -60,6 +65,13 @@
 ;; golden-ratio
 (require-pkg 'golden-ratio t)
 (golden-ratio-mode 1)
+
+;; haskell-mode
+(require-pkg 'haskell-mode t)
+(custom-set-variables
+ '(haskell-mode-hook
+   '(turn-on-haskell-indentation
+     turn-on-haskell-doc)))
 
 ;; helm
 (require-pkg 'helm t)
