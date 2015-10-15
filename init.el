@@ -1,8 +1,8 @@
 ;;; init.el --- yamafaktory
 
 ;; Desktop saving.
-(setq desktop-restore-eager 5)
-(setq desktop-save (quote if-exists))
+(setq desktop-restore-eager 5
+      desktop-save (quote if-exists))
 (desktop-save-mode t)
 
 ;; Remove splash screen.
@@ -40,7 +40,12 @@
 (add-to-list 'load-path (concat dotfiles-dir "yamafaktory"))
 
 ;; Write backup files to own directory.
-(setq backup-directory-alist
+(setq backup-by-copying t
+      delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t
+      backup-directory-alist
       `(("." . ,(expand-file-name (concat dotfiles-dir "backup")))))
 
 ;; Packages sources.
