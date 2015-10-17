@@ -68,10 +68,13 @@
 
 ;; haskell-mode
 (require-pkg 'haskell-mode t)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+(setq haskell-process-path-ghci "stack")
 (custom-set-variables
- '(haskell-mode-hook
-   '(turn-on-haskell-indentation
-     turn-on-haskell-doc)))
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t))
+(define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-switch)
 
 ;; helm
 (require-pkg 'helm t)
