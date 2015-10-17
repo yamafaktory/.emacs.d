@@ -69,13 +69,16 @@
 ;; haskell-mode
 (require-pkg 'haskell-mode t)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-(setq haskell-process-path-ghci "stack")
-(setq haskell-process-args-ghci '("ghci"))
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(setq haskell-process-path-ghci "stack"
+      haskell-process-args-ghci '("ghci"))
 (custom-set-variables
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t))
 (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-switch)
+(define-key haskell-mode-map (kbd "C-c b") 'haskell-process-load-file)
+(define-key haskell-mode-map (kbd "C-c i") 'haskell-process-do-info)
 
 ;; helm
 (require-pkg 'helm t)
