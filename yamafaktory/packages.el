@@ -70,6 +70,7 @@
 (require-pkg 'haskell-mode t)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 (setq haskell-process-path-ghci "stack")
+(setq haskell-process-args-ghci '("ghci"))
 (custom-set-variables
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-auto-import-loaded-modules t)
