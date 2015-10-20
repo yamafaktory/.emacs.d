@@ -79,6 +79,7 @@
 (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-switch)
 (define-key haskell-mode-map (kbd "C-c b") 'haskell-process-load-file)
 (define-key haskell-mode-map (kbd "C-c i") 'haskell-process-do-info)
+(define-key haskell-mode-map (kbd "C-c t") 'haskell-process-do-type)
 
 ;; helm
 (require-pkg 'helm t)
