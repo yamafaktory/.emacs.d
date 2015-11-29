@@ -162,12 +162,6 @@
 (require-pkg 'rainbow-delimiters t)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
-;; restclient
-(require-pkg 'restclient t)
-
-;; rust-lang
-(require-pkg 'rust-mode t)
-
 ;; smartparens
 (require-pkg 'smartparens)
 (require 'smartparens-config)
