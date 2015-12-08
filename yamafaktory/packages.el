@@ -46,6 +46,9 @@
 ;; dockerfile-mode
 (require-pkg 'dockerfile-mode t)
 
+;; elm-mode
+(require-pkg 'elm-mode t)
+
 ;; flycheck
 (require-pkg 'flycheck t)
 (add-hook 'after-init-hook #'global-flycheck-mode)
