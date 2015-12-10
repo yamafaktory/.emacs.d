@@ -46,6 +46,10 @@
 ;; dockerfile-mode
 (require-pkg 'dockerfile-mode t)
 
+;; ebal
+(require-pkg 'ebal t)
+(setq ebal-operation-mode 'stack)
+
 ;; elm-mode
 (require-pkg 'elm-mode t)
 
