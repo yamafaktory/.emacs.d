@@ -49,6 +49,7 @@
 ;; ebal
 (require-pkg 'ebal t)
 (setq ebal-operation-mode 'stack)
+(global-set-key (kbd "C-c e") 'ebal-execute)
 
 ;; elm-mode
 (require-pkg 'elm-mode t)
