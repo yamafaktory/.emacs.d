@@ -38,6 +38,10 @@
 (require-pkg 'color-identifiers-mode)
 (add-hook 'after-init-hook 'global-color-identifiers-mode)
 
+;; company-math
+(require-pkg 'company-math t)
+(add-to-list 'company-backends 'company-math-symbols-unicode)
+
 ;; company-mode
 (require-pkg 'company t)
 (add-hook 'after-init-hook 'global-company-mode)
@@ -175,8 +179,8 @@
 (require 'smartparens-config)
 (smartparens-global-mode t)
 (show-smartparens-global-mode t)
-(define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
-(define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
+(define-key smartparens-mode-map (kbd "C-M-f") 'sp-forward-sexp)
+(define-key smartparens-mode-map (kbd "C-M-b") 'sp-backward-sexp)
 
 ;; undo-tree
 (require-pkg 'undo-tree t)
