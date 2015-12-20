@@ -42,6 +42,12 @@
 (require-pkg 'company-math t)
 (add-to-list 'company-backends 'company-math-symbols-unicode)
 
+;; company-ghci
+(require-pkg 'company-ghci t)
+(push 'company-ghci company-backends)
+(add-hook 'haskell-mode-hook 'company-mode)
+(add-hook 'haskell-interactive-mode-hook 'company-mode)
+
 ;; company-mode
 (require-pkg 'company t)
 (add-hook 'after-init-hook 'global-company-mode)
@@ -96,6 +102,8 @@
 (define-key haskell-mode-map (kbd "C-c i") 'haskell-process-do-info)
 (define-key haskell-mode-map (kbd "C-c k") 'haskell-interactive-mode-clear)
 (define-key haskell-mode-map (kbd "C-c t") 'haskell-process-do-type)
+(define-key haskell-mode-map (kbd "C-,") 'haskell-move-nested-left)
+(define-key haskell-mode-map (kbd "C-.") 'haskell-move-nested-right)
 
 ;; helm
 (require-pkg 'helm t)
