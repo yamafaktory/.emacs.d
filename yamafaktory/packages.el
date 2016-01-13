@@ -1,5 +1,10 @@
 ;;; packages.el --- Extra packages to load
 
+;;; Commentary:
+;;; Required Packages and their configuration.
+
+;;; Code:
+
 ;; theme
 (require-pkg 'gotham-theme)
 (load-theme 'gotham t)
@@ -165,6 +170,9 @@
 (require-pkg 'multi-term t)
 (setq multi-term-program "/bin/zsh")
 
+;; octave
+(global-set-key (kbd "C-c o") 'run-octave)
+
 ;; php-mode
 (require-pkg 'php-mode)
 
@@ -194,12 +202,14 @@
 
 ;; windmove
 (require-pkg 'windmove t)
-(global-set-key (kbd "C-c <left>")  'windmove-left)
-(global-set-key (kbd "C-c <right>") 'windmove-right)
-(global-set-key (kbd "C-c <up>")    'windmove-up)
-(global-set-key (kbd "C-c <down>")  'windmove-down)
+(global-set-key (kbd "C-c j") 'windmove-left)
+(global-set-key (kbd "C-c l") 'windmove-right)
+(global-set-key (kbd "C-c i") 'windmove-up)
+(global-set-key (kbd "C-c k") 'windmove-down)
 
 ;; yaml-mode
 (require-pkg 'yaml-mode t)
 
 (provide 'packages)
+
+;;; packages.el ends here

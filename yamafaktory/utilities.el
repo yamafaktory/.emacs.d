@@ -1,5 +1,10 @@
 ;;; utilities.el --- custom functions
 
+;;; Commentary:
+;;; Additional custom functions.
+
+;;; Code:
+
 (defun change-js-indent (spaces)
   "Change the javascript indentation."
   (interactive "p")
@@ -13,3 +18,5 @@
       (kill-buffer buffer))))
 
 (provide 'utilities)
+
+;;; utilities.el ends here

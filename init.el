@@ -1,5 +1,12 @@
 ;;; init.el --- yamafaktory
 
+;;; Copyright (c) 2016 Davy Duperron - BSD-3 license
+
+;;; Commentary:
+;;; Emacs initialization file.
+
+;;; Code:
+
 ;; Desktop saving.
 (setq desktop-restore-eager 5
       desktop-save (quote if-exists))
@@ -128,3 +135,5 @@
 
 ;; Load custom functions.
 (require 'utilities)
+
+;;; init.el ends here
