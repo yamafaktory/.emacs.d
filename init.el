@@ -82,7 +82,8 @@
             (setq js-indent-level 2)))
 (add-hook 'sh-mode-hook
           (lambda ()
-            (setq sh-basic-offset 2)))
+            (setq sh-basic-offset 2
+                  sh-indentation 2)))
 
 ;; Line number.
 (line-number-mode t)
