@@ -195,6 +195,10 @@
 (define-key smartparens-mode-map (kbd "C-M-f") 'sp-forward-sexp)
 (define-key smartparens-mode-map (kbd "C-M-b") 'sp-backward-sexp)
 
+;; smart-mode-line
+(require-pkg 'smart-mode-line t)
+(sml/setup)
+
 ;; undo-tree
 (require-pkg 'undo-tree t)
 (diminish 'undo-tree-mode "UT")
