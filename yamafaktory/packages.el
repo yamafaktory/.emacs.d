@@ -25,6 +25,13 @@
 (require-pkg 'browse-at-remote t)
 (global-set-key (kbd "C-c r") 'browse-at-remote)
 
+;; buffer-move
+(require-pkg 'buffer-move t)
+(global-set-key (kbd "C-M-j") 'buf-move-left)
+(global-set-key (kbd "C-M-l") 'buf-move-right)
+(global-set-key (kbd "C-M-i") 'buf-move-up)
+(global-set-key (kbd "C-M-k") 'buf-move-down)
+
 ;; cider
 (require-pkg 'cider)
 (add-hook 'cider-repl-mode-hook #'smartparens-strict-mode)
@@ -97,15 +104,15 @@
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t))
-(define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-switch)
+(define-key haskell-mode-map (kbd "C-`")   'haskell-interactive-switch)
 (define-key haskell-mode-map (kbd "C-c b") 'haskell-process-load-file)
 (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal-build)
 (define-key haskell-mode-map (kbd "C-c h") 'haskell-hoogle)
 (define-key haskell-mode-map (kbd "C-c i") 'haskell-process-do-info)
 (define-key haskell-mode-map (kbd "C-c k") 'haskell-interactive-mode-clear)
 (define-key haskell-mode-map (kbd "C-c t") 'haskell-process-do-type)
-(define-key haskell-mode-map (kbd "C-,") 'haskell-move-nested-left)
-(define-key haskell-mode-map (kbd "C-.") 'haskell-move-nested-right)
+(define-key haskell-mode-map (kbd "C-,")   'haskell-move-nested-left)
+(define-key haskell-mode-map (kbd "C-.")   'haskell-move-nested-right)
 
 ;; helm
 (require-pkg 'helm t)
@@ -160,10 +167,10 @@
 
 ;; multiple-cursors
 (require-pkg 'multiple-cursors t)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-S-c C-S-c")   'mc/edit-lines)
+(global-set-key (kbd "C->")           'mc/mark-next-like-this)
+(global-set-key (kbd "C-<")           'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<")       'mc/mark-all-like-this)
 (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 
 ;; multi-term
