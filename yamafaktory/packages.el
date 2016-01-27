@@ -149,8 +149,6 @@
 
 ;; less-css-mode
 (require-pkg 'less-css-mode t)
-(add-to-list 'auto-mode-alist '("\\.less\\'" . less-css-mode))
-(setq less-css-indent-level 2)
 
 ;; magit
 (require-pkg 'magit t)

@@ -74,6 +74,9 @@
 
 ;; Indentation settings.
 (setq-default tab-width 2)
+(add-hook 'css-mode-hook
+          (lambda ()
+            (setq css-indent-offset 2)))
 (add-hook 'html-mode-hook
           (lambda ()
             (setq sgml-basic-offset 4)))
