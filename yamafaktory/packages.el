@@ -57,6 +57,9 @@
 (setq ebal-operation-mode 'stack)
 (global-set-key (kbd "C-c e") 'ebal-execute)
 
+;; elm-mode
+(require-pkg 'elm-mode t)
+
 ;; flycheck
 (require-pkg 'flycheck t)
 (add-hook 'after-init-hook #'global-flycheck-mode)
