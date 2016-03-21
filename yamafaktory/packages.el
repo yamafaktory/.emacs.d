@@ -16,6 +16,10 @@
 (require-pkg 'aggressive-indent t)
 (global-aggressive-indent-mode t)
 
+;; beacon
+(require-pkg 'beacon t)
+(beacon-mode 1)
+
 ;; browse-at-remote
 (require-pkg 'browse-at-remote t)
 (global-set-key (kbd "C-c r") 'browse-at-remote/browse)
