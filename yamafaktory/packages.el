@@ -15,6 +15,7 @@
 ;; aggressive-indent
 (require-pkg 'aggressive-indent t)
 (global-aggressive-indent-mode t)
+(add-to-list 'aggressive-indent-excluded-modes 'elm-mode)
 
 ;; beacon
 (require-pkg 'beacon t)
