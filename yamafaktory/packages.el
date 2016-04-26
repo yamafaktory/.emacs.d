@@ -111,6 +111,16 @@
 (require-pkg 'indent-guide t)
 (indent-guide-global-mode)
 
+;; ivy
+(require-pkg 'ivy t)
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(global-set-key "\C-s"          'counsel-grep-or-swiper)
+(global-set-key (kbd "C-x C-r") 'ivy-resume)
+(global-set-key (kbd "M-x")     'counsel-M-x)
+(global-set-key (kbd "C-x C-a") 'counsel-ag)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+
 ;; js-doc
 (require-pkg 'js-doc)
 (add-hook 'js2-mode-hook
@@ -178,19 +188,6 @@
 ;; smart-mode-line
 (require-pkg 'smart-mode-line t)
 (sml/setup)
-
-;; swiper
-(require-pkg 'swiper t)
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(global-set-key "\C-s"          'swiper)
-(global-set-key (kbd "C-x C-r") 'ivy-resume)
-(global-set-key (kbd "M-x")     'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(global-set-key (kbd "C-x C-g") 'counsel-git)
-(global-set-key (kbd "C-x C-j") 'counsel-git-grep)
-(global-set-key (kbd "C-x C-a") 'counsel-ag)
-(global-set-key (kbd "C-x C-l") 'counsel-locate)
 
 ;; undo-tree
 (require-pkg 'undo-tree t)
