@@ -15,8 +15,8 @@
 ;; aggressive-indent
 (require-pkg 'aggressive-indent t)
 (global-aggressive-indent-mode t)
-(add-to-list 'aggressive-indent-excluded-modes 'elm-mode)
 (add-to-list 'aggressive-indent-excluded-modes 'sh-mode)
+(add-to-list 'aggressive-indent-excluded-modes 'web-mode)
 
 ;; beacon
 (require-pkg 'beacon t)
@@ -62,9 +62,6 @@
 (require-pkg 'ebal t)
 (setq ebal-operation-mode 'stack)
 (global-set-key (kbd "C-c e") 'ebal-execute)
-
-;; elm-mode
-(require-pkg 'elm-mode t)
 
 ;; flycheck
 (require-pkg 'flycheck t)
@@ -193,6 +190,15 @@
 (require-pkg 'undo-tree t)
 (diminish 'undo-tree-mode "UT")
 (global-undo-tree-mode)
+
+;; web-mode
+(require-pkg 'web-mode t)
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+(defun custom-web-mode-hook ()
+  "Custom hooks for web-mode."
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-markup-indent-offset 2))
+(add-hook 'web-mode-hook  'custom-web-mode-hook)
 
 ;; windmove
 (require-pkg 'windmove t)
