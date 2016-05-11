@@ -46,7 +46,7 @@
 ;; company-mode
 (require-pkg 'company t)
 (add-hook 'after-init-hook 'global-company-mode)
-(setq company-dabbrev-downcase nil)
+(setq-default company-dabbrev-downcase nil)
 
 ;; counsel
 (require-pkg 'counsel t)
@@ -56,14 +56,14 @@
 
 ;; ebal
 (require-pkg 'ebal t)
-(setq ebal-operation-mode 'stack)
+(setq-default ebal-operation-mode 'stack)
 (global-set-key (kbd "C-c e") 'ebal-execute)
 
 ;; flycheck
 (require-pkg 'flycheck t)
 (add-hook 'after-init-hook #'global-flycheck-mode)
-(setq ispell-program-name "aspell"
-      ispell-extra-args '("--sug-mode=ultra"))
+(setq-default ispell-program-name "aspell"
+              ispell-extra-args '("--sug-mode=ultra"))
 
 ;; flycheck-haskell
 (require-pkg 'flycheck-haskell t)
@@ -83,9 +83,9 @@
 (require-pkg 'haskell-mode t)
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-(setq haskell-process-type 'stack-ghci
-      haskell-compile-cabal-build-command "stack build"
-      haskell-interactive-popup-errors nil)
+(setq-default haskell-process-type 'stack-ghci
+              haskell-compile-cabal-build-command "stack build"
+              haskell-interactive-popup-errors nil)
 (custom-set-variables
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-auto-import-loaded-modules t)
@@ -107,7 +107,7 @@
 ;; ivy
 (require-pkg 'ivy t)
 (ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
+(setq-default ivy-use-virtual-buffers t)
 (global-set-key "\C-s"          'counsel-grep-or-swiper)
 (global-set-key (kbd "C-x C-r") 'ivy-resume)
 (global-set-key (kbd "M-x")     'counsel-M-x)
@@ -127,7 +127,8 @@
 ;; js2-mode
 (require-pkg 'js2-mode t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(setq-default js2-indent-switch-body t
+(setq-default js2-basic-offset 2
+              js2-indent-switch-body t
               js2-mode-show-parse-errors nil
               js2-mode-show-strict-warnings nil)
 
@@ -157,7 +158,7 @@
 
 ;; multi-term
 (require-pkg 'multi-term t)
-(setq multi-term-program "/bin/zsh")
+(setq-default multi-term-program "/bin/zsh")
 
 ;; octave
 (global-set-key (kbd "C-c o") 'run-octave)
@@ -190,21 +191,25 @@
 (require-pkg 'web-mode t)
 (defun custom-web-mode-hook ()
   "Custom hooks for web-mode."
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-enable-auto-pairing nil)
-  (setq web-mode-enable-css-colorization t)
-  (setq web-mode-enable-current-element-highlight t))
+  (setq-default web-mode-css-indent-offset 2
+                web-mode-code-indent-offset 2
+                web-mode-markup-indent-offset 2
+                web-mode-enable-auto-pairing nil
+                web-mode-enable-css-colorization t
+                web-mode-enable-current-element-highlight t))
 (defun smartparens-in-web-mode (id action context)
   (and (eq action 'insert)
        (not (or (get-text-property (point) 'part-side)
                 (get-text-property (point) 'block-side)))))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
-(add-to-list 'auto-mode-alist '("\\.blade\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'"    . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'"   . web-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'"   . php-mode))
+(setq web-mode-engines-alist
+      '(("html"     . "\\.html?\\'")
+        ("js2-mode" . "\\.js\\'")
+        ("js2-mode" . "\\.jsx\\'")
+        ("php"      . "\\.php\\'")))
 (add-hook 'web-mode-hook 'custom-web-mode-hook)
 (sp-local-pair 'web-mode "<" nil :when '(smartparens-in-web-mode))
 
