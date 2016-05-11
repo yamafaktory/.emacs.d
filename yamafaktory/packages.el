@@ -33,10 +33,6 @@
 (global-set-key (kbd "C-M-i") 'buf-move-up)
 (global-set-key (kbd "C-M-k") 'buf-move-down)
 
-;; color-identifiers-mode
-(require-pkg 'color-identifiers-mode)
-(add-hook 'after-init-hook 'global-color-identifiers-mode)
-
 ;; company-math
 (require-pkg 'company-math t)
 (add-to-list 'company-backends 'company-math-symbols-unicode)
@@ -131,8 +127,7 @@
 ;; js2-mode
 (require-pkg 'js2-mode t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(setq-default js2-basic-offset 2
-              js2-indent-switch-body t
+(setq-default js2-indent-switch-body t
               js2-mode-show-parse-errors nil
               js2-mode-show-strict-warnings nil)
 
@@ -193,12 +188,18 @@
 
 ;; web-mode
 (require-pkg 'web-mode t)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
 (defun custom-web-mode-hook ()
   "Custom hooks for web-mode."
+  (setq web-mode-css-indent-offset 2)
   (setq web-mode-code-indent-offset 2)
-  (setq web-mode-markup-indent-offset 2))
-(add-hook 'web-mode-hook  'custom-web-mode-hook)
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-enable-auto-pairing t)
+  (setq web-mode-enable-css-colorization t)
+  (setq web-mode-enable-current-element-highlight t))
+(add-hook 'web-mode-hook 'custom-web-mode-hook)
 
 ;; windmove
 (require-pkg 'windmove t)
