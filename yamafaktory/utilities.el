@@ -13,7 +13,7 @@
       (kill-buffer buffer))))
 
 (defun custom-web-mode-hook (spaces)
-  "Custom hooks for web-mode."
+  "Custom hooks for web-mode, indentation is based on the SPACES argument."
   (setq-default web-mode-css-indent-offset spaces
                 web-mode-code-indent-offset spaces
                 web-mode-markup-indent-offset spaces
@@ -22,7 +22,7 @@
                 web-mode-enable-current-element-highlight t))
 
 (defun indent (spaces)
-  "Change the web-mode indentation."
+  "Change the web-mode indentation based on the SPACES argument."
   (interactive "nPlease enter the new indentation size in spaces:")
   (remove-hook 'web-mode-hook 'custom-web-mode-hook)
   (add-hook 'web-mode-hook (custom-web-mode-hook spaces))
