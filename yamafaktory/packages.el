@@ -132,6 +132,9 @@
 
 ;; less-css-mode
 (require-pkg 'less-css-mode t)
+(add-hook 'css-mode-hook
+          (lambda ()
+            (setq css-indent-offset 2)))
 
 ;; magit
 (require-pkg 'magit t)
