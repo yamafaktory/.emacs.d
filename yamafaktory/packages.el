@@ -16,7 +16,6 @@
 (require-pkg 'aggressive-indent t)
 (global-aggressive-indent-mode t)
 (add-to-list 'aggressive-indent-excluded-modes 'sh-mode)
-(add-to-list 'aggressive-indent-excluded-modes 'web-mode)
 
 ;; beacon
 (require-pkg 'beacon t)
@@ -127,8 +126,7 @@
 ;; js2-mode
 (require-pkg 'js2-mode t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(setq-default js2-basic-offset 2
-              js2-indent-switch-body t
+(setq-default js2-indent-switch-body t
               js2-mode-show-parse-errors nil
               js2-mode-show-strict-warnings nil)
 
@@ -141,9 +139,9 @@
 
 ;; markdown-mode
 (require-pkg 'markdown-mode t)
-(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.text\\'"     . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'"       . markdown-mode))
 
 ;; midnight
 (require-pkg 'midnight t)
@@ -189,14 +187,7 @@
 
 ;; web-mode
 (require-pkg 'web-mode t)
-(defun custom-web-mode-hook ()
-  "Custom hooks for web-mode."
-  (setq-default web-mode-css-indent-offset 2
-                web-mode-code-indent-offset 2
-                web-mode-markup-indent-offset 2
-                web-mode-enable-auto-pairing nil
-                web-mode-enable-css-colorization t
-                web-mode-enable-current-element-highlight t))
+
 (defun smartparens-in-web-mode (id action context)
   (and (eq action 'insert)
        (not (or (get-text-property (point) 'part-side)
@@ -205,12 +196,13 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'"    . web-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'"   . web-mode))
 (add-to-list 'auto-mode-alist '("\\.php\\'"   . php-mode))
-(setq web-mode-engines-alist
-      '(("html"     . "\\.html?\\'")
-        ("js2-mode" . "\\.js\\'")
-        ("js2-mode" . "\\.jsx\\'")
-        ("php"      . "\\.php\\'")))
-(add-hook 'web-mode-hook 'custom-web-mode-hook)
+(setq-default web-mode-engines-alist
+              '(("html"     . "\\.html?\\'")
+                ("js2-mode" . "\\.js\\'")
+                ("json-mode" . "\\.json\\'")
+                ("js2-mode" . "\\.jsx\\'")
+                ("php"      . "\\.php\\'")))
+(add-hook 'web-mode-hook (custom-web-mode-hook 2))
 (sp-local-pair 'web-mode "<" nil :when '(smartparens-in-web-mode))
 
 ;; windmove

@@ -8,8 +8,8 @@
 ;;; Code:
 
 ;; Desktop saving.
-(setq desktop-restore-eager 5
-      desktop-save (quote if-exists))
+(setq-default desktop-restore-eager 5
+              desktop-save (quote if-exists))
 (desktop-save-mode t)
 
 ;; Remove splash screen.
@@ -21,16 +21,6 @@
 
 ;; Go fullscreen.
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
- '(haskell-process-auto-import-loaded-modules t)
- '(haskell-process-log t)
- '(haskell-process-suggest-remove-import-lines t)
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
 ;; No blinking cursor.
@@ -52,8 +42,8 @@
 (setq create-lockfiles nil)
 
 ;; Add other startup files to load path.
-(setq dotfiles-dir (file-name-directory
-                    (or (buffer-file-name) load-file-name)))
+(setq-default dotfiles-dir (file-name-directory
+                            (or (buffer-file-name) load-file-name)))
 (add-to-list 'load-path (concat dotfiles-dir "yamafaktory"))
 
 ;; Write backup files to own directory.
@@ -74,7 +64,7 @@
   (package-refresh-contents))
 
 (defun require-pkg (pkg &optional req)
-  "Only install a package if needed."
+  "Install a package PKG if and only if needed, require it if REQ is true."
   (unless (package-installed-p pkg)
     (package-install pkg))
   (if req (require pkg)))
@@ -84,19 +74,10 @@
 
 ;; Indentation settings.
 (setq-default tab-width 2)
-(add-hook 'css-mode-hook
-          (lambda ()
-            (setq css-indent-offset 2)))
-(add-hook 'html-mode-hook
-          (lambda ()
-            (setq sgml-basic-offset 4)))
-(add-hook 'json-mode-hook
-          (lambda ()
-            (setq js-indent-level 2)))
 (add-hook 'sh-mode-hook
           (lambda ()
-            (setq sh-basic-offset 2
-                  sh-indentation 2)))
+            (setq-default sh-basic-offset 2
+                          sh-indentation 2)))
 
 ;; Line number.
 (line-number-mode t)
@@ -114,7 +95,7 @@
 (setq sentence-end-double-space nil)
 
 ;; Default column size.
-(setq default-fill-column 79)
+(setq fill-column 79)
 
 ;; Newline at file end's.
 (setq require-final-newline t)
@@ -144,16 +125,10 @@
 ;; Highlight current line.
 (global-hl-line-mode t)
 
+;; Load custom functions first.
+(require 'utilities)
+
 ;; Load other packages.
 (require 'packages)
 
-;; Load custom functions.
-(require 'utilities)
-
 ;;; init.el ends here
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
