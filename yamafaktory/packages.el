@@ -16,6 +16,7 @@
 (require-pkg 'aggressive-indent t)
 (global-aggressive-indent-mode t)
 (add-to-list 'aggressive-indent-excluded-modes 'sh-mode)
+(add-to-list 'aggressive-indent-excluded-modes 'elm-mode)
 
 ;; beacon
 (require-pkg 'beacon t)
@@ -57,6 +58,9 @@
 (require-pkg 'ebal t)
 (setq-default ebal-operation-mode 'stack)
 (global-set-key (kbd "C-c e") 'ebal-execute)
+
+;; elm-mode
+(require-pkg 'elm-mode t)
 
 ;; flycheck
 (require-pkg 'flycheck t)
