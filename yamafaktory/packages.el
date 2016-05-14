@@ -190,7 +190,6 @@
 
 ;; web-mode
 (require-pkg 'web-mode t)
-
 (defun smartparens-in-web-mode (id action context)
   (and (eq action 'insert)
        (not (or (get-text-property (point) 'part-side)
