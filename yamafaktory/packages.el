@@ -103,6 +103,10 @@
 (define-key haskell-mode-map (kbd "C-,")   'haskell-move-nested-left)
 (define-key haskell-mode-map (kbd "C-.")   'haskell-move-nested-right)
 
+;; highlight-numbers
+(require-pkg 'highlight-numbers)
+(add-hook 'prog-mode-hook 'highlight-numbers-mode)
+
 ;; indent-guide
 (require-pkg 'indent-guide t)
 (indent-guide-global-mode)
