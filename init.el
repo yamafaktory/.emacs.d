@@ -74,10 +74,19 @@
 
 ;; Indentation settings.
 (setq-default tab-width 2)
+(add-hook 'css-mode-hook
+          (lambda ()
+            (setq css-indent-offset 2)))
+(add-hook 'html-mode-hook
+          (lambda ()
+            (setq sgml-basic-offset 4)))
+(add-hook 'json-mode-hook
+          (lambda ()
+            (setq js-indent-level 2)))
 (add-hook 'sh-mode-hook
           (lambda ()
-            (setq-default sh-basic-offset 2
-                          sh-indentation 2)))
+            (setq sh-basic-offset 2
+                  sh-indentation 2)))
 
 ;; Line number.
 (line-number-mode t)

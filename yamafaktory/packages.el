@@ -33,6 +33,10 @@
 (global-set-key (kbd "C-M-i") 'buf-move-up)
 (global-set-key (kbd "C-M-k") 'buf-move-down)
 
+;; color-identifiers-mode
+(require-pkg 'color-identifiers-mode)
+(add-hook 'after-init-hook 'global-color-identifiers-mode)
+
 ;; company-math
 (require-pkg 'company-math t)
 (add-to-list 'company-backends 'company-math-symbols-unicode)
@@ -133,8 +137,10 @@
 
 ;; js2-mode
 (require-pkg 'js2-mode t)
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(setq-default js2-indent-switch-body t
+(add-to-list 'auto-mode-alist '("\\.js\\'"   . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
+(setq-default js2-basic-offset 2
+              js2-indent-switch-body t
               js2-mode-show-parse-errors nil
               js2-mode-show-strict-warnings nil)
 
@@ -195,25 +201,6 @@
 (require-pkg 'undo-tree t)
 (diminish 'undo-tree-mode "UT")
 (global-undo-tree-mode)
-
-;; web-mode
-(require-pkg 'web-mode t)
-(defun smartparens-in-web-mode (id action context)
-  (and (eq action 'insert)
-       (not (or (get-text-property (point) 'part-side)
-                (get-text-property (point) 'block-side)))))
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\'"    . web-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx\\'"   . web-mode))
-(add-to-list 'auto-mode-alist '("\\.php\\'"   . php-mode))
-(setq-default web-mode-engines-alist
-              '(("html"     . "\\.html?\\'")
-                ("js2-mode" . "\\.js\\'")
-                ("json-mode" . "\\.json\\'")
-                ("js2-mode" . "\\.jsx\\'")
-                ("php"      . "\\.php\\'")))
-(add-hook 'web-mode-hook (custom-web-mode-hook 2))
-(sp-local-pair 'web-mode "<" nil :when '(smartparens-in-web-mode))
 
 ;; windmove
 (require-pkg 'windmove t)
