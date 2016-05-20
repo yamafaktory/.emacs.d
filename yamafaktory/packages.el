@@ -6,8 +6,8 @@
 ;;; Code:
 
 ;; theme
-(require-pkg 'gotham-theme)
-(load-theme 'gotham t)
+(require-pkg 'dracula-theme)
+(load-theme 'dracula t)
 
 ;; diminish
 (require-pkg 'diminish)
@@ -17,10 +17,6 @@
 (global-aggressive-indent-mode t)
 (add-to-list 'aggressive-indent-excluded-modes 'sh-mode)
 (add-to-list 'aggressive-indent-excluded-modes 'elm-mode)
-
-;; beacon
-(require-pkg 'beacon t)
-(beacon-mode 1)
 
 ;; browse-at-remote
 (require-pkg 'browse-at-remote t)
@@ -195,6 +191,8 @@
 
 ;; smart-mode-line
 (require-pkg 'smart-mode-line t)
+(setq sml/no-confirm-load-theme t)
+(setq sml/theme 'respectful)
 (sml/setup)
 
 ;; undo-tree

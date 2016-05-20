@@ -7,6 +7,10 @@
 
 ;;; Code:
 
+;; Go fullscreen.
+(custom-set-variables
+ '(initial-frame-alist (quote ((fullscreen . maximized)))))
+
 ;; Desktop saving.
 (setq-default desktop-restore-eager 5
               desktop-save (quote if-exists))
@@ -18,10 +22,6 @@
 ;; Remove unwanted UI elements.
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
   (when (fboundp mode) (funcall mode -1)))
-
-;; Go fullscreen.
-(custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
 ;; No blinking cursor.
 (blink-cursor-mode -1)
