@@ -137,8 +137,8 @@
 
 ;; js2-mode
 (require-pkg 'js2-mode t)
-(add-to-list 'auto-mode-alist '("\\.js\\'"   . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'"  . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
 (setq-default js2-basic-offset 2
               js2-indent-switch-body t
               js2-mode-show-parse-errors nil
