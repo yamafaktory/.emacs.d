@@ -67,27 +67,6 @@
 (require-pkg 'golden-ratio t)
 (golden-ratio-mode 1)
 
-;; haskell-mode
-(require-pkg 'haskell-mode t)
-(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-(setq-default haskell-process-type 'stack-ghci
-              haskell-compile-cabal-build-command "stack build"
-              haskell-interactive-popup-errors nil)
-(custom-set-variables
- '(haskell-process-suggest-remove-import-lines t)
- '(haskell-process-auto-import-loaded-modules t)
- '(haskell-process-log t))
-(define-key haskell-mode-map (kbd "C-`")   'haskell-interactive-switch)
-(define-key haskell-mode-map (kbd "C-c b") 'haskell-process-load-file)
-(define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal-build)
-(define-key haskell-mode-map (kbd "C-c h") 'haskell-hoogle)
-(define-key haskell-mode-map (kbd "C-c i") 'haskell-process-do-info)
-(define-key haskell-mode-map (kbd "C-c k") 'haskell-interactive-mode-clear)
-(define-key haskell-mode-map (kbd "C-c t") 'haskell-process-do-type)
-(define-key haskell-mode-map (kbd "C-,")   'haskell-move-nested-left)
-(define-key haskell-mode-map (kbd "C-.")   'haskell-move-nested-right)
-
 ;; highlight-numbers
 (require-pkg 'highlight-numbers)
 (add-hook 'prog-mode-hook 'highlight-numbers-mode)
