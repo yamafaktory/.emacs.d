@@ -37,12 +37,6 @@
 (require-pkg 'company-math t)
 (add-to-list 'company-backends 'company-math-symbols-unicode)
 
-;; company-ghci
-(require-pkg 'company-ghci t)
-(push 'company-ghci company-backends)
-(add-hook 'haskell-mode-hook 'company-mode)
-(add-hook 'haskell-interactive-mode-hook 'company-mode)
-
 ;; company-mode
 (require-pkg 'company t)
 (add-hook 'after-init-hook 'global-company-mode)
@@ -59,20 +53,11 @@
 (setq-default ebal-operation-mode 'stack)
 (global-set-key (kbd "C-c e") 'ebal-execute)
 
-;; elm-mode
-(require-pkg 'elm-mode t)
-
 ;; flycheck
 (require-pkg 'flycheck t)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (setq-default ispell-program-name "aspell"
               ispell-extra-args '("--sug-mode=ultra"))
-
-;; flycheck-haskell
-(require-pkg 'flycheck-haskell t)
-(with-eval-after-load "flycheck"
-  (with-eval-after-load "haskell"
-    (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup)))
 
 ;; git-gutter-fringe
 (require-pkg 'git-gutter-fringe t)
@@ -96,7 +81,7 @@
 (define-key haskell-mode-map (kbd "C-`")   'haskell-interactive-switch)
 (define-key haskell-mode-map (kbd "C-c b") 'haskell-process-load-file)
 (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal-build)
-(define-key haskell-mode-map (kbd "C-c h") 'haskell-hoogle)
+(define-key haskell-mode-map (kbd "C-c hp") 'haskell-hoogle)
 (define-key haskell-mode-map (kbd "C-c i") 'haskell-process-do-info)
 (define-key haskell-mode-map (kbd "C-c k") 'haskell-interactive-mode-clear)
 (define-key haskell-mode-map (kbd "C-c t") 'haskell-process-do-type)
@@ -110,6 +95,10 @@
 ;; indent-guide
 (require-pkg 'indent-guide t)
 (indent-guide-global-mode)
+
+;; intero
+(require-pkg 'intero t)
+(add-hook 'haskell-mode-hook 'intero-mode)
 
 ;; ivy
 (require-pkg 'ivy t)
