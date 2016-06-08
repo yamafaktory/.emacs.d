@@ -79,7 +79,7 @@
             (setq css-indent-offset 2)))
 (add-hook 'html-mode-hook
           (lambda ()
-            (setq sgml-basic-offset 4)))
+            (setq sgml-basic-offset 2)))
 (add-hook 'json-mode-hook
           (lambda ()
             (setq js-indent-level 2)))
