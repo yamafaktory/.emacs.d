@@ -15,8 +15,9 @@
 ;; aggressive-indent
 (require-pkg 'aggressive-indent t)
 (global-aggressive-indent-mode t)
-(add-to-list 'aggressive-indent-excluded-modes 'sh-mode)
+(add-to-list 'aggressive-indent-excluded-modes 'dockerfile-mode)
 (add-to-list 'aggressive-indent-excluded-modes 'elm-mode)
+(add-to-list 'aggressive-indent-excluded-modes 'sh-mode)
 
 ;; browse-at-remote
 (require-pkg 'browse-at-remote t)
