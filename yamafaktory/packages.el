@@ -16,7 +16,7 @@
 (require-pkg 'aggressive-indent t)
 (global-aggressive-indent-mode t)
 (add-to-list 'aggressive-indent-excluded-modes 'dockerfile-mode)
-(add-to-list 'aggressive-indent-excluded-modes 'elm-mode)
+(add-to-list 'aggressive-indent-excluded-modes 'nix-mode)
 (add-to-list 'aggressive-indent-excluded-modes 'sh-mode)
 
 ;; browse-at-remote
@@ -139,6 +139,9 @@
 ;; multi-term
 (require-pkg 'multi-term t)
 (setq-default multi-term-program "/bin/zsh")
+
+;; nix-mode
+(require-pkg 'nix-mode t)
 
 ;; octave
 (global-set-key (kbd "C-c o") 'run-octave)
