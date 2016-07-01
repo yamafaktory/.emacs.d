@@ -90,13 +90,6 @@
 (global-set-key (kbd "C-x C-a") 'counsel-ag)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 
-;; js-doc
-(require-pkg 'js-doc)
-(add-hook 'js2-mode-hook
-          #'(lambda ()
-              (define-key js2-mode-map "C-x C-d" 'js-doc-insert-function-doc)
-              (define-key js2-mode-map "@" 'js-doc-insert-tag)))
-
 ;; json-mode
 (require-pkg 'json-mode t)
 
