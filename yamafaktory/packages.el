@@ -21,7 +21,7 @@
 
 ;; browse-at-remote
 (require-pkg 'browse-at-remote t)
-(global-set-key (kbd "C-c r") 'browse-at-remote/browse)
+(global-set-key (kbd "C-c r") 'bar-browse)
 
 ;; buffer-move
 (require-pkg 'buffer-move t)
