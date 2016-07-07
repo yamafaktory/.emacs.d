@@ -59,6 +59,14 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (setq-default ispell-program-name "aspell"
               ispell-extra-args '("--sug-mode=ultra"))
+(flycheck-define-checker shellcheck
+  "A shell script syntax and style checker using Shellcheck."
+  :command ("shellcheck" "-f" "checkstyle"
+            "-s" (eval (symbol-name sh-shell))
+            source)
+  :modes sh-mode
+  :error-parser flycheck-parse-checkstyle)
+(flycheck-add-next-checker 'sh-zsh '(warning . shellcheck))
 
 ;; git-gutter-fringe
 (require-pkg 'git-gutter-fringe t)
