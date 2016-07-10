@@ -46,6 +46,10 @@
 ;; counsel
 (require-pkg 'counsel t)
 
+;; disable-mouse
+(require-pkg 'disable-mouse t)
+(global-disable-mouse-mode)
+
 ;; dockerfile-mode
 (require-pkg 'dockerfile-mode t)
 
