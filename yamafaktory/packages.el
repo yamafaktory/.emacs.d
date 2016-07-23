@@ -18,6 +18,7 @@
 (add-to-list 'aggressive-indent-excluded-modes 'dockerfile-mode)
 (add-to-list 'aggressive-indent-excluded-modes 'nix-mode)
 (add-to-list 'aggressive-indent-excluded-modes 'sh-mode)
+(add-to-list 'aggressive-indent-excluded-modes 'web-mode)
 
 ;; browse-at-remote
 (require-pkg 'browse-at-remote t)
@@ -176,6 +177,22 @@
 (require-pkg 'undo-tree t)
 (diminish 'undo-tree-mode "UT")
 (global-undo-tree-mode)
+
+;; web-mode
+(require-pkg 'web-mode t)
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+(defun sp-web-mode-is-code-context (id action context)
+  (and (eq action 'insert)
+       (not (or (get-text-property (point) 'part-side)
+                (get-text-property (point) 'block-side)))))
+(defun web-mode-hook ()
+  "Web mode hooks."
+  (setq web-mode-attr-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-indent-style 2)
+  (setq web-mode-markup-indent-offset 2))
+(add-hook 'web-mode-hook  'web-mode-hook)
+(sp-local-pair 'web-mode "<" nil :when '(sp-web-mode-is-code-context))
 
 ;; windmove
 (require-pkg 'windmove t)
