@@ -43,6 +43,8 @@
 (require-pkg 'company t)
 (add-hook 'after-init-hook 'global-company-mode)
 (setq-default company-dabbrev-downcase nil)
+(define-key company-active-map [tab] 'company-complete-common-or-cycle)
+(define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
 
 ;; counsel
 (require-pkg 'counsel t)
