@@ -29,6 +29,13 @@
 ;; No tooltip.
 (tooltip-mode -1)
 
+;; Disable arrow and delete keys.
+(global-set-key (kbd "<up>") 'ignore)
+(global-set-key (kbd "<down>") 'ignore)
+(global-set-key (kbd "<left>") 'ignore)
+(global-set-key (kbd "<right>") 'ignore)
+(global-set-key (kbd "<delete>") 'ignore)
+
 ;; UTF-8
 (set-terminal-coding-system 'utf-8)
 (set keyboard-coding-system 'utf-8)
