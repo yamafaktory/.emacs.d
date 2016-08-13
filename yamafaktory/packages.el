@@ -56,6 +56,10 @@
 ;; dockerfile-mode
 (require-pkg 'dockerfile-mode t)
 
+;; dumb-jump
+(require-pkg 'dumb-jump t)
+(dumb-jump-mode)
+
 ;; ebal
 (require-pkg 'ebal t)
 (setq-default ebal-operation-mode 'stack)
