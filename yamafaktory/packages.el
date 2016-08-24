@@ -117,7 +117,7 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'"  . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
 (setq-default js2-basic-offset 2
-              js-switch-indent-offset 2
+              js2-switch-indent-offset 2
               js2-mode-show-parse-errors nil
               js2-mode-show-strict-warnings nil)
 
