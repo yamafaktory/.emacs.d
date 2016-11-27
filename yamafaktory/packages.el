@@ -12,14 +12,6 @@
 ;; diminish
 (require-pkg 'diminish)
 
-;; aggressive-indent
-(require-pkg 'aggressive-indent t)
-(global-aggressive-indent-mode t)
-(add-to-list 'aggressive-indent-excluded-modes 'dockerfile-mode)
-(add-to-list 'aggressive-indent-excluded-modes 'nix-mode)
-(add-to-list 'aggressive-indent-excluded-modes 'sh-mode)
-(add-to-list 'aggressive-indent-excluded-modes 'web-mode)
-
 ;; browse-at-remote
 (require-pkg 'browse-at-remote t)
 (global-set-key (kbd "C-c r") 'bar-browse)
