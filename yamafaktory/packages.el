@@ -57,6 +57,10 @@
 (setq-default ebal-operation-mode 'stack)
 (global-set-key (kbd "C-c e") 'ebal-execute)
 
+;; emojify
+(require-pkg 'emojify t)
+(add-hook 'after-init-hook #'global-emojify-mode)
+
 ;; flycheck
 (require-pkg 'flycheck t)
 (add-hook 'after-init-hook #'global-flycheck-mode)
