@@ -60,6 +60,7 @@
 ;; emojify
 (require-pkg 'emojify t)
 (add-hook 'after-init-hook #'global-emojify-mode)
+(global-set-key (kbd "C-x e") 'emojify-insert-emoji)
 
 ;; flycheck
 (require-pkg 'flycheck t)
