@@ -135,8 +135,8 @@
 (delete-selection-mode t)
 
 ;; Font face and size.
-(add-to-list 'default-frame-alist '(font . "Fira Mono-14"))
-(set-face-attribute 'default t :font "Fira Mono-14")
+(add-to-list 'default-frame-alist '(font . "Fira Mono-16"))
+(set-face-attribute 'default t :font "Fira Mono-16")
 
 ;; Highlight current line.
 (global-hl-line-mode t)
