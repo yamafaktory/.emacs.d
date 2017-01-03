@@ -40,6 +40,8 @@
 
 ;; counsel
 (require-pkg 'counsel t)
+(if (eq system-type 'darwin)
+    (setq-default counsel-ag-base-command "/usr/local/Cellar/the_silver_searcher/1.0.2/bin/ag --vimgrep --nocolor --nogroup %s"))
 
 ;; disable-mouse
 (require-pkg 'disable-mouse t)
