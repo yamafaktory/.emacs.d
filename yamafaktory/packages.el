@@ -6,8 +6,8 @@
 ;;; Code:
 
 ;; theme
-(require-pkg 'dracula-theme)
-(load-theme 'dracula t)
+(require-pkg 'doom-themes)
+(load-theme 'doom-one t)
 
 ;; diminish
 (require-pkg 'diminish)
