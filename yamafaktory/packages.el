@@ -154,9 +154,6 @@
 (require-pkg 'multi-term t)
 (setq-default multi-term-program "/bin/zsh")
 
-;; nix-mode
-(require-pkg 'nix-mode t)
-
 ;; octave
 (global-set-key (kbd "C-c o") 'run-octave)
 
