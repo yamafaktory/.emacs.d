@@ -7,10 +7,10 @@
 
 ;; add-node-modules-path
 (require-pkg 'add-node-modules-path)
-(eval-after-load 'js2-mode
-  '(add-hook 'js2-mode-hook #'add-node-modules-path))
-(eval-after-load 'js2-mode
-  '(add-hook 'web-mode-hook #'add-node-modules-path))
+(with-eval-after-load 'js2-mode
+  (add-hook 'js2-mode-hook #'add-node-modules-path))
+(with-eval-after-load 'js2-mode
+  (add-hook 'web-mode-hook #'add-node-modules-path))
 
 ;; browse-at-remote
 (require-pkg 'browse-at-remote t)
@@ -35,14 +35,13 @@
 (require-pkg 'company t)
 (add-hook 'after-init-hook 'global-company-mode)
 (setq-default company-dabbrev-downcase nil)
-(eval-after-load 'company
-  '(progn
-     (define-key company-active-map [tab] 'company-complete-common-or-cycle)
-     (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
-     (define-key company-active-map (kbd "C-n") 'company-complete-common-or-cycle)
-     (define-key company-active-map (kbd "S-TAB") 'company-select-previous)
-     (define-key company-active-map (kbd "<backtab>") 'company-select-previous)
-     (define-key company-active-map (kbd "C-p") 'company-complete-common-or-cycle)))
+(with-eval-after-load 'company
+  (define-key company-active-map [tab] 'company-complete-common-or-cycle)
+  (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
+  (define-key company-active-map (kbd "C-n") 'company-complete-common-or-cycle)
+  (define-key company-active-map (kbd "S-TAB") 'company-select-previous)
+  (define-key company-active-map (kbd "<backtab>") 'company-select-previous)
+  (define-key company-active-map (kbd "C-p") 'company-complete-common-or-cycle))
 
 ;; counsel
 (require-pkg 'counsel t)
