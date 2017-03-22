@@ -5,12 +5,12 @@
 
 ;;; Code:
 
-;; theme
-(require-pkg 'doom-themes)
-(load-theme 'doom-one t)
-
-;; diminish
-(require-pkg 'diminish)
+;; add-node-modules-path
+(require-pkg 'add-node-modules-path)
+(eval-after-load 'js2-mode
+  '(add-hook 'js2-mode-hook #'add-node-modules-path))
+(eval-after-load 'js2-mode
+  '(add-hook 'web-mode-hook #'add-node-modules-path))
 
 ;; browse-at-remote
 (require-pkg 'browse-at-remote t)
@@ -35,11 +35,20 @@
 (require-pkg 'company t)
 (add-hook 'after-init-hook 'global-company-mode)
 (setq-default company-dabbrev-downcase nil)
-(define-key company-active-map [tab] 'company-complete-common-or-cycle)
-(define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
+(eval-after-load 'company
+  '(progn
+     (define-key company-active-map [tab] 'company-complete-common-or-cycle)
+     (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
+     (define-key company-active-map (kbd "C-n") 'company-complete-common-or-cycle)
+     (define-key company-active-map (kbd "S-TAB") 'company-select-previous)
+     (define-key company-active-map (kbd "<backtab>") 'company-select-previous)
+     (define-key company-active-map (kbd "C-p") 'company-complete-common-or-cycle)))
 
 ;; counsel
 (require-pkg 'counsel t)
+
+;; diminish
+(require-pkg 'diminish)
 
 ;; disable-mouse
 (require-pkg 'disable-mouse t)
@@ -47,6 +56,10 @@
 
 ;; dockerfile-mode
 (require-pkg 'dockerfile-mode t)
+
+;; doom-themes
+(require-pkg 'doom-themes)
+(load-theme 'doom-one t)
 
 ;; dumb-jump
 (require-pkg 'dumb-jump t)
@@ -79,6 +92,8 @@
   :modes sh-mode
   :error-parser flycheck-parse-checkstyle)
 (flycheck-add-next-checker 'sh-zsh '(warning . shellcheck))
+(flycheck-add-mode 'javascript-eslint 'js2-mode)
+(flycheck-add-mode 'javascript-eslint 'web-mode)
 
 ;; git-gutter-fringe
 (require-pkg 'git-gutter-fringe t)
