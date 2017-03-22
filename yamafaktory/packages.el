@@ -116,18 +116,11 @@
 ;; js2-mode
 (require-pkg 'js2-mode t)
 (add-to-list 'auto-mode-alist '("\\.js\\'"  . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-jsx-mode))
 (setq-default js2-basic-offset 2
               js-switch-indent-offset 2
               js2-indent-switch-body t
               js2-mode-show-parse-errors nil
               js2-mode-show-strict-warnings nil)
-
-;; less-css-mode
-(require-pkg 'less-css-mode t)
-(add-hook 'css-mode-hook
-          (lambda ()
-            (setq css-indent-offset 2)))
 
 ;; magit
 (require-pkg 'magit t)
@@ -145,17 +138,14 @@
 
 ;; multiple-cursors
 (require-pkg 'multiple-cursors t)
-(global-set-key (kbd "C-S-c C-S-c")   'mc/edit-lines)
-(global-set-key (kbd "C->")           'mc/mark-next-like-this)
-(global-set-key (kbd "C-<")           'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<")       'mc/mark-all-like-this)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->")         'mc/mark-next-like-this)
+(global-set-key (kbd "C-<")         'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<")     'mc/mark-all-like-this)
 
 ;; multi-term
 (require-pkg 'multi-term t)
 (setq-default multi-term-program "/bin/zsh")
-
-;; octave
-(global-set-key (kbd "C-c o") 'run-octave)
 
 ;; php-mode
 (require-pkg 'php-mode)
