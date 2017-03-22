@@ -90,9 +90,16 @@
             source)
   :modes sh-mode
   :error-parser flycheck-parse-checkstyle)
-(flycheck-add-next-checker 'sh-zsh '(warning . shellcheck))
-(flycheck-add-mode 'javascript-eslint 'js2-mode)
-(flycheck-add-mode 'javascript-eslint 'web-mode)
+(with-eval-after-load 'flycheck
+  (flycheck-add-next-checker 'sh-zsh '(warning . shellcheck))
+  (flycheck-add-mode 'javascript-eslint 'js2-mode)
+  (flycheck-add-mode 'javascript-eslint 'web-mode))
+
+;; flycheck-flow
+(require-pkg 'flycheck-flow t)
+(add-hook 'javascript-mode-hook 'flycheck-mode)
+(with-eval-after-load 'flycheck
+  (flycheck-add-next-checker 'javascript-eslint 'javascript-flow))
 
 ;; git-gutter-fringe
 (require-pkg 'git-gutter-fringe t)
