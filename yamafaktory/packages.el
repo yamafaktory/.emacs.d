@@ -41,7 +41,7 @@
   (define-key company-active-map (kbd "C-n") 'company-complete-common-or-cycle)
   (define-key company-active-map (kbd "S-TAB") 'company-select-previous)
   (define-key company-active-map (kbd "<backtab>") 'company-select-previous)
-  (define-key company-active-map (kbd "C-p") 'company-complete-common-or-cycle))
+  (define-key company-active-map (kbd "C-p") 'company-select-previous))
 
 ;; counsel
 (require-pkg 'counsel t)
