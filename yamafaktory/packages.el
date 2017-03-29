@@ -23,10 +23,6 @@
 (global-set-key (kbd "C-M-i") 'buf-move-up)
 (global-set-key (kbd "C-M-k") 'buf-move-down)
 
-;; color-identifiers-mode
-(require-pkg 'color-identifiers-mode)
-(add-hook 'after-init-hook 'global-color-identifiers-mode)
-
 ;; company-math
 (require-pkg 'company-math t)
 (add-to-list 'company-backends 'company-math-symbols-unicode)
@@ -56,9 +52,9 @@
 ;; dockerfile-mode
 (require-pkg 'dockerfile-mode t)
 
-;; doom-themes
-(require-pkg 'doom-themes)
-(load-theme 'doom-one t)
+;; dracula-theme
+(require-pkg 'dracula-theme)
+(load-theme 'dracula t)
 
 ;; dumb-jump
 (require-pkg 'dumb-jump t)
