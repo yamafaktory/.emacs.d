@@ -183,6 +183,9 @@
 (add-to-list 'auto-mode-alist '("\\.js[x]?\\'" . web-mode))
 (setq web-mode-content-types-alist
       '(("jsx" . "\\.jsx?$")))
+(setq web-mode-enable-auto-pairing t)
+(setq web-mode-enable-css-colorization t)
+(setq web-mode-enable-current-element-highlight t)
 (defun sp-web-mode-is-code-context (id action context)
   (and (eq action 'insert)
        (not (or (get-text-property (point) 'part-side)
