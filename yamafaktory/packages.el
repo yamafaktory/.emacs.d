@@ -7,9 +7,7 @@
 
 ;; add-node-modules-path
 (require-pkg 'add-node-modules-path)
-(with-eval-after-load 'js2-mode
-  (add-hook 'js2-mode-hook #'add-node-modules-path))
-(with-eval-after-load 'js2-mode
+(with-eval-after-load 'web-mode
   (add-hook 'web-mode-hook #'add-node-modules-path))
 
 ;; browse-at-remote
@@ -52,10 +50,6 @@
 ;; dockerfile-mode
 (require-pkg 'dockerfile-mode t)
 
-;; dracula-theme
-(require-pkg 'dracula-theme)
-(load-theme 'dracula t)
-
 ;; dumb-jump
 (require-pkg 'dumb-jump t)
 (dumb-jump-mode)
@@ -88,7 +82,6 @@
   :error-parser flycheck-parse-checkstyle)
 (with-eval-after-load 'flycheck
   (flycheck-add-next-checker 'sh-zsh '(warning . shellcheck))
-  (flycheck-add-mode 'javascript-eslint 'js2-mode)
   (flycheck-add-mode 'javascript-eslint 'web-mode))
 
 ;; flycheck-flow
@@ -104,6 +97,10 @@
 ;; golden-ratio
 (require-pkg 'golden-ratio t)
 (golden-ratio-mode 1)
+
+;; gotham-theme
+(require-pkg 'gotham-theme)
+(load-theme 'gotham t)
 
 ;; highlight-numbers
 (require-pkg 'highlight-numbers)
@@ -129,15 +126,6 @@
 
 ;; json-mode
 (require-pkg 'json-mode t)
-
-;; js2-mode
-(require-pkg 'js2-mode t)
-(add-to-list 'auto-mode-alist '("\\.js\\'"  . js2-mode))
-(setq-default js2-basic-offset 2
-              js-switch-indent-offset 2
-              js2-indent-switch-body t
-              js2-mode-show-parse-errors nil
-              js2-mode-show-strict-warnings nil)
 
 ;; magit
 (require-pkg 'magit t)
@@ -192,7 +180,9 @@
 
 ;; web-mode
 (require-pkg 'web-mode t)
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.js[x]?\\'" . web-mode))
+(setq web-mode-content-types-alist
+      '(("jsx" . "\\.jsx?$")))
 (defun sp-web-mode-is-code-context (id action context)
   (and (eq action 'insert)
        (not (or (get-text-property (point) 'part-side)
