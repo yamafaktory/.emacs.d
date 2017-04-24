@@ -159,6 +159,10 @@
 (require-pkg 'rainbow-delimiters t)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
+;; rust-mode
+(require-pkg 'rust-mode t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+
 ;; smartparens
 (require-pkg 'smartparens)
 (require 'smartparens-config)
