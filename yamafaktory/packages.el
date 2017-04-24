@@ -90,6 +90,10 @@
 (with-eval-after-load 'flycheck
   (flycheck-add-next-checker 'javascript-eslint 'javascript-flow))
 
+;; flycheck-rust
+(require-pkg 'flycheck-rust t)
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+
 ;; git-gutter-fringe
 (require-pkg 'git-gutter-fringe t)
 (global-git-gutter-mode t)
@@ -162,6 +166,7 @@
 ;; rust-mode
 (require-pkg 'rust-mode t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+(setq-default rust-format-on-save t)
 
 ;; smartparens
 (require-pkg 'smartparens)
@@ -173,8 +178,8 @@
 
 ;; smart-mode-line
 (require-pkg 'smart-mode-line t)
-(setq sml/no-confirm-load-theme t)
-(setq sml/theme 'respectful)
+(setq-default sml/no-confirm-load-theme t)
+(setq-default sml/theme 'respectful)
 (sml/setup)
 
 ;; undo-tree
@@ -185,21 +190,21 @@
 ;; web-mode
 (require-pkg 'web-mode t)
 (add-to-list 'auto-mode-alist '("\\.js[x]?\\'" . web-mode))
-(setq web-mode-content-types-alist
+(setq-default web-mode-content-types-alist
       '(("jsx" . "\\.jsx?$")))
-(setq web-mode-enable-auto-pairing t)
-(setq web-mode-enable-css-colorization t)
-(setq web-mode-enable-current-element-highlight t)
+(setq-default web-mode-enable-auto-pairing t)
+(setq-default web-mode-enable-css-colorization t)
+(setq-default web-mode-enable-current-element-highlight t)
 (defun sp-web-mode-is-code-context (id action context)
   (and (eq action 'insert)
        (not (or (get-text-property (point) 'part-side)
                 (get-text-property (point) 'block-side)))))
 (defun web-mode-hook ()
   "Web mode hooks."
-  (setq web-mode-attr-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
-  (setq web-mode-indent-style 2)
-  (setq web-mode-markup-indent-offset 2))
+  (setq-default web-mode-attr-indent-offset 2)
+  (setq-default web-mode-code-indent-offset 2)
+  (setq-default web-mode-indent-style 2)
+  (setq-default web-mode-markup-indent-offset 2))
 (add-hook 'web-mode-hook  'web-mode-hook)
 (sp-local-pair 'web-mode "<" nil :when '(sp-web-mode-is-code-context))
 
