@@ -67,6 +67,7 @@
 ;; exec-path-from-shell
 (require-pkg 'exec-path-from-shell t)
 (exec-path-from-shell-initialize)
+(exec-path-from-shell-copy-env "LD_LIBRARY_PATH")
 
 ;; flycheck
 (require-pkg 'flycheck t)
