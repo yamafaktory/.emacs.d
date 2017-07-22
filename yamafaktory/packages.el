@@ -191,6 +191,9 @@
 (setq-default sml/theme 'respectful)
 (sml/setup)
 
+;;toml-mode
+(require-pkg 'toml-mode t)
+
 ;; undo-tree
 (require-pkg 'undo-tree t)
 (diminish 'undo-tree-mode "UT")
