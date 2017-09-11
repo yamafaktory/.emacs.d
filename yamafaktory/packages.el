@@ -126,7 +126,7 @@
 (global-set-key "\C-s"          'counsel-grep-or-swiper)
 (global-set-key (kbd "C-x C-r") 'ivy-resume)
 (global-set-key (kbd "M-x")     'counsel-M-x)
-(global-set-key (kbd "C-x C-a") 'counsel-ag)
+(global-set-key (kbd "C-x C-a") 'counsel-rg)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 
 ;; json-mode
