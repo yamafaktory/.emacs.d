@@ -50,13 +50,6 @@
 ;; dockerfile-mode
 (require-pkg 'dockerfile-mode t)
 
-;; doom-themes
-(require-pkg 'doom-themes)
-(load-theme 'doom-one t)
-(setq-default doom-themes-enable-bold t
-              doom-themes-enable-italic t)
-(doom-themes-visual-bell-config)
-
 ;; dumb-jump
 (require-pkg 'dumb-jump t)
 (dumb-jump-mode)
@@ -134,6 +127,10 @@
 
 ;; json-mode
 (require-pkg 'json-mode t)
+
+;; kaolin-theme
+(require-pkg 'kaolin-theme)
+(load-theme 'kaolin t)
 
 ;; magit
 (require-pkg 'magit t)
