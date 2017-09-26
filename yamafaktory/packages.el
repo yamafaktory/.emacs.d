@@ -50,6 +50,13 @@
 ;; dockerfile-mode
 (require-pkg 'dockerfile-mode t)
 
+;; doom-themes
+(require-pkg 'doom-themes)
+(load-theme 'doom-one t)
+(setq-default doom-themes-enable-bold t
+              doom-themes-enable-italic t)
+(doom-themes-visual-bell-config)
+
 ;; dumb-jump
 (require-pkg 'dumb-jump t)
 (dumb-jump-mode)
@@ -102,10 +109,6 @@
 ;; golden-ratio
 (require-pkg 'golden-ratio t)
 (golden-ratio-mode 1)
-
-;; gotham-theme
-(require-pkg 'gotham-theme)
-(load-theme 'gotham t)
 
 ;; highlight-numbers
 (require-pkg 'highlight-numbers)

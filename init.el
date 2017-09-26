@@ -1,6 +1,6 @@
 ;;; init.el --- yamafaktory
 
-;;; Copyright (c) 2016 Davy Duperron - BSD-3 license
+;;; Copyright (c) 2017 Davy Duperron - BSD-3 license
 
 ;;; Commentary:
 ;;; Emacs initialization file.
@@ -139,7 +139,7 @@
 (add-to-list 'default-frame-alist '(font . "Fira Code-18"))
 (set-face-attribute 'default t :font "Fira Code-18")
 (when (window-system)
-  (set-default-font "Fira Code"))
+  (set-frame-font "Fira Code"))
 (let ((alist '((33 . ".\\(?:\\(?:==\\|!!\\)\\|[!=]\\)")
                (35 . ".\\(?:###\\|##\\|_(\\|[#(?[_{]\\)")
                (36 . ".\\(?:>\\)")
