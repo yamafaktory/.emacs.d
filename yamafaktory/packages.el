@@ -119,6 +119,8 @@
 (require-pkg 'ivy t)
 (ivy-mode 1)
 (setq-default ivy-use-virtual-buffers t)
+(setq-default counsel-grep-base-command
+ "rg -i -M 120 --no-heading --line-number --color never '%s' %s")
 (global-set-key "\C-s"          'counsel-grep-or-swiper)
 (global-set-key (kbd "C-x C-r") 'ivy-resume)
 (global-set-key (kbd "M-x")     'counsel-M-x)
